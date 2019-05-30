@@ -3,7 +3,11 @@
 
 #include <stdexcept>
 
-class TrianguloInvalidoException : public std::exception {
+using namespace std;
+
+class TrianguloInvalidoException : public exception {
+public:
+    virtual const char *what() const noexcept override;
 };
 
 #endif /* PDS2_EXCECOES_H   */
