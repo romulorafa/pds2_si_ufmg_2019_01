@@ -9,18 +9,10 @@ Triangulo::Triangulo(){
 // **Triangulo - construtor com parâmetros
 Triangulo::Triangulo(double x, double y, double z){
 
-    try
-    {
-        if(verifica_condicoes(x, y, z)){
-            this->x = x;
-            this->y = y;
-            this->z = z;
-        }
-    }
-    catch(TrianguloInvalidoException::exception& e)
-    {
-        cerr << e.what() << '\n';
-    }
+    verifica_condicoes(x, y, z);
+    this->x = x;
+    this->y = y;
+    this->z = z;
 }
 
 // *DESTRUTOR
@@ -31,18 +23,10 @@ Triangulo::~Triangulo(){
 
 // *MÉTODOS
 // **verifica_condições: dados os valores dos lados, verifica se formam um triangulo válido
-bool Triangulo::verifica_condicoes(double x, double y, double z){
+void verifica_condicoes(double x, double y, double z){
 
-    if ((this->x <= 0) || (this->y <= 0) || (this->z <= 0)){
-        throw TrianguloInvalidoException();
-        return false;
-    }
-    if ((abs(y - z) < x) && (x < abs(y + z))){
-        throw TrianguloInvalidoException();
-        return false;
-    }
-    else{
-        return true;
+    if ((x <= 0) || (y <= 0) || (z <= 0)){
+        
     }
 }
 // **determinar_tipo: retorna um dos três tipos do triangulo
