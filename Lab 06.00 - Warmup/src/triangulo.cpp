@@ -31,16 +31,19 @@ Triangulo::~Triangulo(){
 
 // *MÉTODOS
 // **verifica_condições: dados os valores dos lados, verifica se formam um triangulo válido
-int Triangulo::verifica_condicoes(double x, double y, double z){
+bool Triangulo::verifica_condicoes(double x, double y, double z){
 
     if ((this->x <= 0) || (this->y <= 0) || (this->z <= 0)){
         throw TrianguloInvalidoException();
+        return false;
     }
-    else if ((abs(y - z) < x) && (x < abs(y + z))){
+    if ((abs(y - z) < x) && (x < abs(y + z))){
         throw TrianguloInvalidoException();
+        return false;
     }
-
-    return 1;
+    else{
+        return true;
+    }
 }
 // **determinar_tipo: retorna um dos três tipos do triangulo
 Tipo Triangulo::determinar_tipo(){
@@ -48,15 +51,10 @@ Tipo Triangulo::determinar_tipo(){
     if ((this->x == this->y) && (this->y == this->z)){
         return (EQUILATERO);
     }
+    if ((this->x != y) && (this->y != this->z) && (this->x != this->z)){
+        return (ESCALENO);
+    }
     else{
-        if ((this->x != y) && (this->y != this->z) &&(this->x != this->z)){
-            return ESCALENO;
-        }
-        else{
-            return ISOSCELES;
-        }
+        return (ISOSCELES);
     }
 }
-
-
-

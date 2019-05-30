@@ -18,7 +18,7 @@ public:
     ~Triangulo();
     Triangulo(double x, double y, double z);
 
-    int verifica_condicoes(double x, double y, double z);
+    bool verifica_condicoes(double x, double y, double z);
     Tipo determinar_tipo();
 
 };
