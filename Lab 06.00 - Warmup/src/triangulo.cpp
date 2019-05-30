@@ -52,5 +52,4 @@ Tipo Triangulo::determinar_tipo(){
             return (ISOSCELES);
         }
     }
-    return;
 }
