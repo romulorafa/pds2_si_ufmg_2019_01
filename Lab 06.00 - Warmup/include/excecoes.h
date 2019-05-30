@@ -10,4 +10,4 @@ public:
     virtual const char *what() const noexcept override;
 };
 
-#endif /* PDS2_EXCECOES_H   */
+#endif /* PDS2_EXCECOES_H   */ 
