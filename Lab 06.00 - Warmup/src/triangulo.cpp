@@ -1,41 +1,18 @@
 #include "triangulo.h"
 
-// *CONSTRUTOR
-// **Triangulo - construtor padrão
-Triangulo::Triangulo(){
-
-}
-
 // **Triangulo - construtor com parâmetros
-Triangulo::Triangulo(double x, double y, double z){
-    
-    if (verifica_condicoes (x, y, z)){
+Triangulo::Triangulo(double _x, double _y, double _z){
+
+    if ((_x <= 0) || (_y <= 0) || (_z <= 0) || (abs(_y - _z) >= _x) || (_x >= (_y + _z))){
         throw TrianguloInvalidoException();
     }
     
-    this->x = x;
-    this->y = y;
-    this->z = z;    
-}
-
-// *DESTRUTOR
-// **Triangulo - destrutor padrão
-Triangulo::~Triangulo(){
-
+    this->x = _x;
+    this->y = _y;
+    this->z = _z;
 }
 
 // *MÉTODOS
-// **verifica_condições: dados o tamanho dos lados, verifica condição de existência de um triângulo
-bool verifica_condicoes(double x, double y, double z){
-
-    if ((abs(y - z) < x) && (x < (y + z))){
-        return true;
-    }
-    else{
-        return false;
-    }
-}
-
 // **determinar_tipo: retorna um dos três tipos do triangulo
 Tipo Triangulo::determinar_tipo(){
 

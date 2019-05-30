@@ -2,7 +2,6 @@
 #define PDS2_TRIANGULO_H
 
 #include <cmath>
-#include <iostream>
 #include "excecoes.h"
 
 using namespace std;
@@ -14,11 +13,10 @@ private:
     double x, y, z;
 
 public:
-    Triangulo();
-    ~Triangulo();
-    Triangulo(double x, double y, double z);
+    // *CONSTRUTOR
+    Triangulo(double _x, double _y, double _z);
 
-    bool verifica_condicoes(double x, double y, double z);
+    // *MÉTODOS
     Tipo determinar_tipo();
 
 };
